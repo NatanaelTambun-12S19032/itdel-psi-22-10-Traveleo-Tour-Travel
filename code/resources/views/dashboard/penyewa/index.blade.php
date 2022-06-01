@@ -24,7 +24,7 @@
             <thead>
                 <tr>
                     <th>No</th>
-                    <th>Nama User</th>
+                    <th>Nama Penyewa</th>
                     <th>Email</th>
                     <th>Alamat</th>
                     <th>No HP</th>

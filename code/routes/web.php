@@ -6,6 +6,7 @@ use App\Http\Controllers\Dashboard\Booking\BookingController;
 use App\Http\Controllers\Dashboard\Cars\CarsController;
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Dashboard\ProsesPinjam\ProsesPinjamController;
+use App\Http\Controllers\Dashboard\RiwayatPesanan\RiwayatPesananController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WelcomeController;
 
@@ -66,6 +67,9 @@ Route::group(['prefix' => 'dashboard', 'namespace' => 'Dashboard', 'middleware' 
 
     Route::group(['namespace' => 'RiwayatPesanan'], function () {
         Route::resource('/riwayat-pesanan', 'RiwayatPesananController');
+    });
+    Route::group(['namespace' => 'Pembayaran'], function () {
+        Route::resource('/Pembayaran', 'PembayaranController');
     });
 
     Route::group(['namespace' => 'Supir'], function () {

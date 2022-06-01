@@ -23,6 +23,7 @@
                                     <th>Tanggal Sewa</th>
                                     <th>Tanggal Selesai</th>
                                     <th>Jaminan</th>
+                                    <th>Bukti Transfer</th>
                                     <th>Status Peminjaman</th>
                                     <th>Aksi</th>
                                 </tr>
@@ -37,6 +38,7 @@
                                     <td>{{ $item->tgl_sewa }}</td>
                                     <td>{{ $item->tgl_selesai }}</td>
                                     <td>{{ $item->jaminan }}</td>
+                                    <td>{{ $item->bukti_transfer }}</td>
                                     <td>{{ ( $item->status_peminjaman == 0 ) ? "Menunggu Dibayar" : (( $item->status_peminjaman == 1 )  ? "Sedang Proses Peminjaman" : "Selesai") }}</td>
                                     <td>
                                         <button class="btn btn-success rounded-pill btn_kembali btn-sm" data-lok="{{ $item->id }}">Telah Dikembalikan</button>
@@ -67,11 +69,10 @@
 @endsection
 
 @push('after-script')
-    
+
 
 <script>
-
-    $(document).on('click', '.btn_kembali', function(e){
+    $(document).on('click', '.btn_kembali', function(e) {
         let data = $(this).data('lok')
 
         Swal.fire({
@@ -84,7 +85,7 @@
             confirmButtonText: 'Ya, Sudah Dikembalikan!'
         }).then((result) => {
             if (result.isConfirmed) {
-                
+
                 $.ajax({
                     type: "POST",
                     url: "{{ route('proses-pinjam.kembali') }}",
@@ -92,12 +93,12 @@
                         _token: '{{ csrf_token() }}',
                         id: data,
                     },
-                    success: function (res) {
+                    success: function(res) {
                         Swal.fire('Berhasil', res.message, 'success')
                         location.reload()
                     }
                 });
-                
+
             }
         })
 

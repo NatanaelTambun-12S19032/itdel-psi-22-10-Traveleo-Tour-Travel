@@ -47,6 +47,7 @@
                             <th>Tanggal Sewa</th>
                             <th>Tanggal Selesai</th>
                             <th>Jaminan</th>
+                            <th>Bukti Transfer</th>
                             <th>Status Peminjaman</th>
                         </tr>
                     </thead>
@@ -60,6 +61,7 @@
                             <td>{{ $item->tgl_sewa }}</td>
                             <td>{{ $item->tgl_selesai }}</td>
                             <td>{{ $item->jaminan }}</td>
+                            <td>{{ $item->bukti_transfer }}</td>
                             <td>{{ ( $item->status_peminjaman == 0 ) ? "Menunggu Dibayar" : (( $item->status_peminjaman == 1 )  ? "Sedang Proses Peminjaman" : "Selesai") }}</td>
                         </tr>
 

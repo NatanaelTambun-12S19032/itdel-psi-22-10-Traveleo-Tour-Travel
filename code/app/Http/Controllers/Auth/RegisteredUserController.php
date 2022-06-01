@@ -40,7 +40,7 @@ class RegisteredUserController extends Controller
             'no_hp' => ['required', 'string', 'max:13'],
             'alamat' => ['required', 'string', 'max:255'],
             'role_name' => 'required|string|max:255',
-            'password' => ['required'],
+            'password' => ['required|min:5|max:20'],
         ]);
 
         $user = User::create([

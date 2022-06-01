@@ -22,6 +22,8 @@ class CreatePesananTable extends Migration
             $table->date('tgl_selesai');
             $table->string('denda');
             $table->string('jaminan');
+            $table->string('bukti_transfer');
+            $table->string('bukti_pembayaran');
             $table->string('foto_jaminan');
             $table->string('status_pembayaran');
             $table->string('status_peminjaman');

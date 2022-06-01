@@ -31,6 +31,7 @@
                                     <th>Tanggal Selesai</th>
                                     <th>Jaminan</th>
                                     <th>Status Pembayaran</th>
+                                    <th>Bukti Transfer</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -45,6 +46,7 @@
                                     <td>{{ $item->tgl_selesai }}</td>
                                     <td>{{ $item->jaminan }}</td>
                                     <td>{{ $item->status_pembayaran == 0 ? 'Belum Dibayar' : 'Lunas' }}</td>
+                                    <td>{{ $item->bukti_transfer }}</td>
                                     <td>
                                         <button class="btn btn-success rounded-pill btn_konfirmasi" data-lok="{{ $item->id }}">Konfirmasi Pembayaran</button>
                                     </td>
@@ -71,11 +73,10 @@
 @endsection
 
 @push('after-script')
-    
+
 
 <script>
-
-    $(document).on('click', '.btn_konfirmasi', function(e){
+    $(document).on('click', '.btn_konfirmasi', function(e) {
         let data = $(this).data('lok')
 
         Swal.fire({
@@ -88,7 +89,7 @@
             confirmButtonText: 'Ya, Sudah Dibayar!'
         }).then((result) => {
             if (result.isConfirmed) {
-                
+
                 $.ajax({
                     type: "POST",
                     url: "{{ route('booking.konfirmasi') }}",
@@ -96,12 +97,12 @@
                         _token: '{{ csrf_token() }}',
                         id: data,
                     },
-                    success: function (res) {
+                    success: function(res) {
                         Swal.fire('Berhasil', res.message, 'success')
                         location.reload()
                     }
                 });
-                
+
             }
         })
 

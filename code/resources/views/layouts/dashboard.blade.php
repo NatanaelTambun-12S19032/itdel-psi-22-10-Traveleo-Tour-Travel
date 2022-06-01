@@ -80,6 +80,12 @@
                         </li>
 
                         @if( auth()->user()->role == 0 )
+                        <li class="sidebar-item {{ request()->routeIs('Pembayaran.*') ? 'active' : ''}}">
+                            <a href="{{ route('Pembayaran.index') }}" class='sidebar-link'>
+                                <i class="fas fa-hand-holding-usd"></i>
+                                <span>Pembayaran</span>
+                            </a>
+                        </li>
                         <li class="sidebar-item {{ request()->routeIs('riwayat-pesanan.*') ? 'active' : ''}}">
                             <a href="{{ route('riwayat-pesanan.index') }}" class='sidebar-link'>
                                 <i class="fas fa-hand-holding-usd"></i>
@@ -96,10 +102,10 @@
                             </a>
                         </li>
 
-                        <li class="sidebar-item {{ request()->routeIs('penggajian.*') ? 'active' : ''}}">
-                            <a href="" class='sidebar-link'>
-                                <i class="fas fa-hand-holding-usd"></i>
-                                <span>penggajian</span>
+                        <li class="sidebar-item {{ request()->routeIs('selesai.*') ? 'active' : ''}}">
+                            <a href="{{ route('selesai.index') }}" class='sidebar-link'>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Laporan Transaksi</span>
                             </a>
                         </li>
                         @endif

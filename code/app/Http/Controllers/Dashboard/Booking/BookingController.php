@@ -47,6 +47,9 @@ class BookingController extends Controller
         $data->tgl_sewa = $request->tgl_pesan;
         $data->tgl_selesai = $request->tgl_kembali;
         $data->jaminan = $request->jaminan;
+        $data->bukti_transfer = 0;
+        $data->bukti_pembayaran = 0;
+
 
         $foto_jaminan = $request->foto_jaminan->store('/foto_jaminan', 'public');
         $data->foto_jaminan = pathinfo($foto_jaminan)['basename'];
