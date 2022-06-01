@@ -16,12 +16,12 @@
                     </a>
                 </div>
                 <div class="card-body">
-                    
+
                     <form class="form" action="{{ route('cars.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
 
                         <div class="row">
-                            
+
                             <div class="col-md-6 col-12">
                                 <div class="form-group">
                                     <label for="merk">Merk Mobil</label>
@@ -73,7 +73,7 @@
                             <div class="col-md-6 col-12">
                                 <div class="form-group">
                                     <label for="kapasitas">Kapasitas Penumpang</label>
-                                    <input type="text" id="kapasitas" class="form-control" placeholder="Masukkan Nama Mobil" name="kapasitas" required>
+                                    <input type="text" id="kapasitas" class="form-control" placeholder="Masukkan Kapasitas Penumpang" name="kapasitas" required>
                                 </div>
                             </div>
 
@@ -124,11 +124,10 @@
     $('#previewMobil').hide()
 
     // Preview Gambar Mobil
-    function img(input){
-        $('#previewGambar')[0].src = (window.URL ? URL : webkitURL).createObjectURL(input.files[0]);
+    function img(input) {
+        $('#previewGambar')[1].src = (window.URL ? URL : webkitURL).createObjectURL(input.files[1]);
         $('#previewMobil').show()
     }
-
 </script>
 
 @endpush

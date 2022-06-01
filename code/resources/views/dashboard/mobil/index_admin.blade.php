@@ -19,7 +19,7 @@
                 </button>
             </div>
             <div class="modal-body mobil">
-                
+
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn" data-bs-dismiss="modal">
@@ -49,7 +49,7 @@
                         <div class="card mb-3 w-100">
                             <div class="row no-gutters">
                                 <div class="col-md-3">
-                                    <img src="{{ asset('storage/gambar_mobil/'.$item->gambar_mobil.'') }}" alt="Gambar {{ $item->nama_mobil }}" width="250">
+                                    <img src="{{asset('storage/gambar_mobil/iDVCr0HuOxTO8UsN5RSVi4j54B0WE9M9JAQ9zgqY.png') }}" alt="Gambar {{ $item->nama_mobil }}" width="250">
                                 </div>
                                 <div class="col-md-9">
                                     <div class="card-body">
@@ -61,7 +61,7 @@
                                             Biaya Sewa : {{ $item->harga_sewa }}
                                         </p>
                                         <p class="">
-                                            Deskripsi : 
+                                            Deskripsi :
                                             <span>{{ $item->keterangan }}</span>
                                         </p>
                                         @if ( auth()->user()->role == 1 )
@@ -111,7 +111,7 @@
 @endsection
 
 @push('after-script')
-    
+
 <script>
 
     $(document).on('click', '.btn_hapus', function(e){
@@ -127,7 +127,7 @@
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                
+
                 $.ajax({
                     type: "DELETE",
                     url: "{{ url('dashboard/cars') }}/"+data,
@@ -139,14 +139,14 @@
                         location.reload()
                     }
                 });
-                
+
             }
         })
 
     })
 
     $(document).on('click', '.btn_detail', function (e) {
-        
+
         let data = $(this).data('detail')
 
         $.ajax({

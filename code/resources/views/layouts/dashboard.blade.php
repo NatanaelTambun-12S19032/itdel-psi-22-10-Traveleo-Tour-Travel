@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,7 +25,7 @@
                     <div class="d-flex justify-content-between">
                         <div class="logo">
                             <a href="{{ route('cars.index') }}">
-                                Rental Mobil Bumiayu
+                                Rental Mobil Traveleo Tour & Travel
                             </a>
                         </div>
                         <div class="toggler">
@@ -34,7 +33,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="d-flex justify-content-center">
                     <div class="avatar avatar-xl me-3">
                         <img src="{{ asset('assets/images/faces/2.jpg') }}" alt="" srcset="">
@@ -51,10 +50,10 @@
                         <li class="sidebar-title">Menu</li>
 
                         {{-- <li class="sidebar-item {{ request()->routeIs('dashboard') ? 'active' : ''}}">
-                            <a href="{{ route('dashboard') }}" class='sidebar-link'>
-                                <i class="fas fa-tachometer-alt"></i>
-                                <span>Dashboard</span>
-                            </a>
+                        <a href="{{ route('dashboard') }}" class='sidebar-link'>
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>Dashboard</span>
+                        </a>
                         </li> --}}
 
                         <li class="sidebar-item {{ request()->routeIs('cars.*') ? 'active' : ''}}">
@@ -69,6 +68,12 @@
                             <a href="{{ route('riwayat-pesanan.index') }}" class='sidebar-link'>
                                 <i class="fas fa-hand-holding-usd"></i>
                                 <span>Riwayat Pesanan</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item {{ request()->routeIs('Pembayaran.*') ? 'active' : ''}}">
+                            <a href="{{ route('Pembayaran.index') }}" class='sidebar-link'>
+                                <i class="fas fa-hand-holding-usd"></i>
+                                <span>Pembayaran</span>
                             </a>
                         </li>
                         @endif
@@ -91,7 +96,13 @@
                         <li class="sidebar-item {{ request()->routeIs('user.*') ? 'active' : ''}}">
                             <a href="{{ route('user.index') }}" class='sidebar-link'>
                                 <i class="fas fa-users"></i>
-                                <span>User</span>
+                                <span>Penyewa</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item {{ request()->routeIs('operator.*') ? 'active' : ''}}">
+                            <a href="{{ route('operator.index') }}" class='sidebar-link'>
+                                <i class="fas fa-users"></i>
+                                <span>Operator</span>
                             </a>
                         </li>
 
@@ -113,7 +124,7 @@
                                 @csrf
                             </form>
                         </li>
-                        
+
                     </ul>
                 </div>
                 <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
@@ -128,17 +139,16 @@
 
             @yield('content')
 
-            <footer>
+            <!-- <footer>
                 <div class="footer clearfix mb-0 text-muted">
                     <div class="float-start">
                         <p>2021 &copy; Mazer</p>
                     </div>
                     <div class="float-end">
-                        <p>Crafted with <span class="text-danger"><i class="bi bi-heart"></i></span> by <a
-                                href="https://jokopurnomo.my.id">Joko Purnomo</a></p>
+                        <p>Crafted with <span class="text-danger"><i class="bi bi-heart"></i></span> by <a href="https://jokopurnomo.my.id">Joko Purnomo</a></p>
                     </div>
                 </div>
-            </footer>
+            </footer> -->
         </div>
     </div>
     <script src="{{ asset('assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
@@ -151,13 +161,14 @@
 
 
     @if (session()->has('success'))
-        <script>
-            Swal.fire('Berhasil', '{{ session()->get('success') }}', 'success')
-        </script>
+    <script>
+        Swal.fire('Berhasil', '{{ session()->get('
+            success ') }}', 'success')
+    </script>
     @endif
 
     @stack('after-script')
-    
+
 </body>
 
 </html>

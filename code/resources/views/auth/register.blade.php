@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,22 +20,22 @@
                 <div id="auth-left">
                     <div class="auth-logo">
                         <a href="/">
-                            <h3>Rental Mobil Bumiayu</h3>
+                            <h3>Rental Mobil Traveleo Tour & Travel</h3>
                         </a>
                     </div>
                     <h1 class="auth-title">Daftar</h1>
 
                     @if ($errors->any())
-                        <div class="alert alert-danger">
-                            <ul>
-                                @error('email')
-                                    <li>Maaf email sudah digunakan</li>
-                                @enderror
-                                @error('name')
-                                    <li>Maaf username sudah digunakan</li>
-                                @enderror
-                            </ul>
-                        </div>
+                    <div class="alert alert-danger">
+                        <ul>
+                            @error('email')
+                            <li>Maaf email sudah digunakan</li>
+                            @enderror
+                            @error('name')
+                            <li>Maaf username sudah digunakan</li>
+                            @enderror
+                        </ul>
+                    </div>
                     @endif
 
                     <form action="{{ route('register') }}" method="POST">

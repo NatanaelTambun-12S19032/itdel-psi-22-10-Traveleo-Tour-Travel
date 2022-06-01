@@ -1,11 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Rental Mobil Bumiayu</title>
+    <title>Login - Rental Mobil Traveleo Tour & Travel</title>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/vendors/bootstrap-icons/bootstrap-icons.css') }}">
@@ -21,15 +20,15 @@
                 <div id="auth-left">
                     <div class="auth-logo">
                         <a href="/">
-                            <h3>Rental Mobil Bumiayu</h3>
+                            <h3>Rental Mobil Traveleo Tour & Travel</h3>
                         </a>
                     </div>
                     <h1 class="auth-title">Masuk.</h1>
 
                     @error('email')
-                        <div class="alert alert-danger alert-dismissible show fade">
-                            {{ $message }}
-                        </div>
+                    <div class="alert alert-danger alert-dismissible show fade">
+                        {{ $message }}
+                    </div>
                     @enderror
 
                     <form action="{{ route('login') }}" method="POST">
@@ -51,8 +50,8 @@
                     </form>
                     <div class="text-center mt-5 text-lg fs-4">
                         <p class="text-gray-600">
-                            Belum Memiliki Akun? 
-                            <a href="{{ route('register') }}"class="font-bold">Daftar</a>.
+                            Belum Memiliki Akun?
+                            <a href="{{ route('register') }}" class="font-bold">Daftar</a>.
                         </p>
                     </div>
                 </div>
@@ -65,6 +64,8 @@
         </div>
 
     </div>
+
 </body>
+
 
 </html>

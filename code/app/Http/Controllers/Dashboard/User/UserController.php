@@ -12,6 +12,6 @@ class UserController extends Controller
     {
         $data = User::where('role', 0)->paginate(10);
 
-        return view('dashboard.user.index', compact('data'));
+        return view('dashboard.penyewa.index', compact('data'));
     }
 }
