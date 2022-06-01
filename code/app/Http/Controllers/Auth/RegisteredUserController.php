@@ -39,6 +39,7 @@ class RegisteredUserController extends Controller
             'nama_lengkap' => ['required', 'string', 'max:255'],
             'no_hp' => ['required', 'string', 'max:13'],
             'alamat' => ['required', 'string', 'max:255'],
+            'role_name' => 'required|string|max:255',
             'password' => ['required'],
         ]);
 
@@ -48,6 +49,7 @@ class RegisteredUserController extends Controller
             'nama_lengkap' => $request->nama_lengkap,
             'no_telephone' => $request->no_hp,
             'alamat' => $request->alamat,
+            'role_name' => $request->role_name,
             'password' => Hash::make($request->password),
         ]);
 

@@ -14,4 +14,15 @@ class UserController extends Controller
 
         return view('dashboard.penyewa.index', compact('data'));
     }
+    public function edit(User $data)
+    {
+        $data['title'] = 'Edit Penyewa';
+        $data['user'] = $data;
+        return view('dashboard.penyewa.edit', $data);
+    }
+    public function destroy(User $data)
+    {
+        $data->delete();
+        return redirect()->back()->with('success', 'Penyewa deleted successfully');
+    }
 }

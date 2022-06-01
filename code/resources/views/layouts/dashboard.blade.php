@@ -39,10 +39,26 @@
                         <img src="{{ asset('assets/images/faces/2.jpg') }}" alt="" srcset="">
                     </div>
                 </div>
-                <div class="d-flex justify-content-center mt-3">
+                <!-- <div class="col-md-4">
+                    <label>Role Name</label>
+                </div> -->
+                <!-- <div class="d-flex justify-content-center mt-3">
                     <a href="javascript:void(0)">
                         {{ auth()->user()->name }}
                     </a>
+                </div> -->
+                <div class="ms-5 name">
+                    <h5 class="font-bold">{{ Auth::user()->name }}</h5>
+                </div>
+                <div class="ms-5">
+                    <div class="form-group has-icon-left">
+                        <div class="position-relative">
+                            <input type="text" class="form-control" value="{{ Auth::user()->role_name }}" readonly>
+                            <div class="form-control-icon">
+                                <i class="bi bi-exclude"></i>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="sidebar-menu">
@@ -70,10 +86,28 @@
                                 <span>Riwayat Pesanan</span>
                             </a>
                         </li>
-                        <li class="sidebar-item {{ request()->routeIs('Pembayaran.*') ? 'active' : ''}}">
-                            <a href="{{ route('Pembayaran.index') }}" class='sidebar-link'>
+                        @endif
+
+                        @if( auth()->user()->role == 2 )
+                        <li class="sidebar-item {{ request()->routeIs('operator.*') ? 'active' : ''}}">
+                            <a href="{{ route('operator.index') }}" class='sidebar-link'>
+                                <i class="fas fa-users"></i>
+                                <span>Data Operator</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-item {{ request()->routeIs('penggajian.*') ? 'active' : ''}}">
+                            <a href="" class='sidebar-link'>
                                 <i class="fas fa-hand-holding-usd"></i>
-                                <span>Pembayaran</span>
+                                <span>penggajian</span>
+                            </a>
+                        </li>
+                        @endif
+                        @if( auth()->user()->role == 3 )
+                        <li class="sidebar-item {{ request()->routeIs('operator.*') ? 'active' : ''}}">
+                            <a href="{{ route('operator.index') }}" class='sidebar-link'>
+                                <i class="fas fa-users"></i>
+                                <span>Persetujuan</span>
                             </a>
                         </li>
                         @endif
@@ -99,17 +133,16 @@
                                 <span>Penyewa</span>
                             </a>
                         </li>
-                        <li class="sidebar-item {{ request()->routeIs('operator.*') ? 'active' : ''}}">
-                            <a href="{{ route('operator.index') }}" class='sidebar-link'>
+                        <li class="sidebar-item {{ request()->routeIs('supir.*') ? 'active' : ''}}">
+                            <a href="{{ route('supir.index') }}" class='sidebar-link'>
                                 <i class="fas fa-users"></i>
-                                <span>Operator</span>
+                                <span>Supir</span>
                             </a>
                         </li>
-
                         <li class="sidebar-item {{ request()->routeIs('selesai.*') ? 'active' : ''}}">
                             <a href="{{ route('selesai.index') }}" class='sidebar-link'>
                                 <i class="fas fa-check-circle"></i>
-                                <span>Selesai</span>
+                                <span>Laporan Transaksi</span>
                             </a>
                         </li>
                         @endif

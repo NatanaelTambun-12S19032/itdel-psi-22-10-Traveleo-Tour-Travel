@@ -4,68 +4,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Rental Mobil Traveleo Tour & Travel</title>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/vendors/bootstrap-icons/bootstrap-icons.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/app.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/pages/auth.css') }}">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login - Traveleo Tour & Travel</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="images/logo.jpeg" />
 </head>
+<style>
+    body {
+        background-image: url('./images/logo.jpeg');
+        background-size: cover;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+    }
+</style>
 
 <body>
-    <div id="auth">
-
-        <div class="row h-100">
-            <div class="col-lg-5 col-12">
-                <div id="auth-left">
-                    <div class="auth-logo">
-                        <a href="/">
-                            <h3>Rental Mobil Traveleo Tour & Travel</h3>
-                        </a>
+    <div class="container"><br>
+        <div class="col-md-4 col-md-offset-4">
+            <h2 class="text-center"><b>SIREMOTRA</b><br>Traveleo Tour & Travel</h3>
+                <hr>
+                @if(session('error'))
+                <div class="alert alert-danger">
+                    <b>Opps!</b> {{session('error')}}
+                </div>
+                @endif
+                <form action="{{ route('login') }}" method="post">
+                    @csrf
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" name="email" class="form-control" placeholder="Email" required="">
                     </div>
-                    <h1 class="auth-title">Masuk.</h1>
-
-                    @error('email')
-                    <div class="alert alert-danger alert-dismissible show fade">
-                        {{ $message }}
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" name="password" class="form-control" placeholder="Password" required="">
                     </div>
-                    @enderror
+                    <div class="form-group row">
+                        <div class="col-md-6 offset-md-4">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
-                    <form action="{{ route('login') }}" method="POST">
-                        @csrf
-
-                        <div class="form-group position-relative has-icon-left mb-4">
-                            <input type="text" class="form-control form-control-xl" placeholder="Email" :value="old('email')" name="email">
-                            <div class="form-control-icon">
-                                <i class="bi bi-person"></i>
+                                <label class="form-check-label" for="remember">
+                                    {{ __('Remember Me') }}
+                                </label>
                             </div>
                         </div>
-                        <div class="form-group position-relative has-icon-left mb-4">
-                            <input type="password" class="form-control form-control-xl" placeholder="Password" name="password">
-                            <div class="form-control-icon">
-                                <i class="bi bi-shield-lock"></i>
-                            </div>
-                        </div>
-                        <button class="btn btn-primary btn-block btn-lg shadow-lg mt-5">Log in</button>
-                    </form>
-                    <div class="text-center mt-5 text-lg fs-4">
-                        <p class="text-gray-600">
-                            Belum Memiliki Akun?
-                            <a href="{{ route('register') }}" class="font-bold">Daftar</a>.
-                        </p>
                     </div>
-                </div>
-            </div>
-            <div class="col-lg-7 d-none d-lg-block">
-                <div id="auth-right">
-
-                </div>
-            </div>
+                    <button type="submit" class="btn btn-primary btn-block">Log In</button>
+                    <hr>
+                    <p class="text-center">Belum punya akun? <a href="{{ route('register') }}">Daftar</a> sekarang!</p>
+                </form>
         </div>
-
     </div>
-
 </body>
-
 
 </html>

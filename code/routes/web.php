@@ -1,10 +1,13 @@
 <?php
 
+use App\Http\Controllers\Dashboard\Supir\SupirController;
+use App\Http\Controllers\Dashboard\Operator\OperatorController;
 use App\Http\Controllers\Dashboard\Booking\BookingController;
 use App\Http\Controllers\Dashboard\Cars\CarsController;
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Dashboard\ProsesPinjam\ProsesPinjamController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\WelcomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,9 +20,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::get('/', function () {
-    return view('auth.login');
+    return view('home');
 });
+Route::get('/home', [\App\Http\Controllers\WelcomeController::class, "index"]);
+
+Route::get('/login', function () {
+    return view('login', [
+        "title" => "Login"
+    ]);
+});
+Route::post('/login', 'App\Http\Controllers\LoginController@login');
 
 Route::group(['prefix' => 'dashboard', 'namespace' => 'Dashboard', 'middleware' => 'auth'], function () {
 
@@ -49,18 +61,29 @@ Route::group(['prefix' => 'dashboard', 'namespace' => 'Dashboard', 'middleware' 
 
     Route::group(['namespace' => 'Selesai'], function () {
         Route::resource('/selesai', 'SelesaiController');
+        Route::get('/cetaklaporan', 'SelesaiController@cetaklaporan')->name('cetaklaporan');
     });
 
     Route::group(['namespace' => 'RiwayatPesanan'], function () {
         Route::resource('/riwayat-pesanan', 'RiwayatPesananController');
     });
-    Route::group(['namespace' => 'Pembayaran'], function () {
-        Route::resource('/Pembayaran', 'PembayaranController');
+
+    Route::group(['namespace' => 'Supir'], function () {
+        Route::resource('/supir', 'SupirController');
     });
 
-    Route::group(['namespace' => 'Pembayaran'], function () {
-        Route::resource('/Pembayaran', 'PembayaranController');
+    Route::group(['namespace' => 'Operator'], function () {
+        Route::resource('/operator', 'OperatorController');
     });
+
+    Route::group(['namespace' => 'Penyewa'], function () {
+        Route::resource('/penyewa', 'UserController');
+    });
+
+    Route::get('/dashboard.supir.index', 'App\Http\Controllers\Dasboard\Supir\SupirController@index');
+    Route::get('/dashboard.supir.create', 'App\Http\Controllers\Dasboard\Supir\SupirController@create');
+    Route::post('/dashboard.mobil.create', [SupirController::class, 'store']);
+
 
     Route::get('/dashboard.mobil.tambah', 'App\Http\Controllers\Dasboard\Cars\CarsController@create');
     // Route::get('/dashboard.mobil.tambah', [CarsController::class, 'create']);

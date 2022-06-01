@@ -22,14 +22,13 @@
                     <div class="col-md-12 col-sm-12">
                         <div class="card">
                             <div class="card-content">
-                                <img class="card-img-top img-fluid" src="{{ asset('storage/gambar_mobil/'.$data->gambar_mobil.'') }}"
-                                    alt="Card image cap" style="height: 35rem" />
+                                <img class="card-img-top img-fluid" src="{{ asset('storage/gambar_mobil/'.$data->gambar_mobil.'') }}" alt="Card image cap" style="height: 35rem" />
                                 <div class="card-body">
 
                                     <!-- Table with outer spacing -->
                                     <div class="row">
                                         <div class="col-md-6">
-                                            
+
                                             <div class="table-responsive">
                                                 <table class="table table-sm">
                                                     <tbody>
@@ -81,15 +80,21 @@
                                                                 <p></p>
                                                             </div>
                                                             <h5 class="price text-white">Harga Sewa : {{ $data->harga_sewa }}</h5>
-                                                            
+
                                                             <input type="date" class="form-control mt-2" placeholder="Tanggal Pesan" id="tgl_pesan" name="tgl_pesan">
-    
+
                                                             <input type="date" class="form-control mt-3" placeholder="Tanggal Dikembalikan" id="tgl_kembali" name="tgl_kembali">
-    
+
                                                             <input type="text" class="form-control mt-3" placeholder="Jaminan" id="jaminan" name="jaminan">
-                                                            
+
+                                                            <select class="form-control mt-3" aria-label="Default select example">
+                                                                <option selected>Pilih Jenis Pembayaran</option>
+                                                                <option value="1">Tunai</option>
+                                                                <option value="2">E-Wallet</option>
+                                                            </select>
+
                                                             <input type="file" class="form-control mt-3" placeholder="Foto Jaminan" id="foto_jaminan" name="foto_jaminan">
-    
+
                                                             <div class="card-footer">
                                                                 <button type="submit" class="btn btn-outline-white btn-block">Pesan</button>
                                                             </div>
@@ -98,19 +103,19 @@
                                                     </div>
                                                 </div>
 
+                                            </div>
+
                                         </div>
 
                                     </div>
-
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    {{-- End --}}
+                        {{-- End --}}
+                    </div>
                 </div>
             </div>
-        </div>
     </section>
 </div>
 

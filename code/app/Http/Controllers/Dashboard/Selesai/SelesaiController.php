@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Dashboard\Selesai;
 
+use App\Exports\SelesaiExport;
 use App\Http\Controllers\Controller;
 use App\Models\Pesanan;
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Http\Request;
 
 class SelesaiController extends Controller
@@ -14,5 +16,9 @@ class SelesaiController extends Controller
             ->where('status_pembayaran', 1)->paginate(10);
 
         return view('dashboard.selesai.index', compact('data'));
+    }
+    public function cetaklaporan()
+    {
+        return Excel::download(new SelesaiExport, 'laporan.xlsx');
     }
 }

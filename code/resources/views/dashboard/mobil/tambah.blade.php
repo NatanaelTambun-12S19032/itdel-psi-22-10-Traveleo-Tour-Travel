@@ -73,7 +73,7 @@
                             <div class="col-md-6 col-12">
                                 <div class="form-group">
                                     <label for="kapasitas">Kapasitas Penumpang</label>
-                                    <input type="text" id="kapasitas" class="form-control" placeholder="Masukkan Kapasitas Penumpang" name="kapasitas" required>
+                                    <input type="text" id="kapasitas" class="form-control" placeholder="Masukkan Nama Mobil" name="kapasitas" required>
                                 </div>
                             </div>
 

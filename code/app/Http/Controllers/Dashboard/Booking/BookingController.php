@@ -53,7 +53,6 @@ class BookingController extends Controller
 
         $data->status_pembayaran = 0;
         $data->status_peminjaman = 0;
-        $data->bukti_pembayaran = "-";
 
         $data->save();
 

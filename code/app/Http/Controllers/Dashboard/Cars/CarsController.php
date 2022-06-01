@@ -41,7 +41,7 @@ class CarsController extends Controller
         $data->fasilitas = $request->fasilitas;
         $data->save();
 
-        return redirect()->back()->with('success', 'Berhasil Menambahkan Data Mobil');
+        return view('dashboard.mobil.tambah')->with('success', 'Berhasil Menambahkan Data Mobil');
     }
 
     public function edit($id)

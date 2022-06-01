@@ -25,7 +25,6 @@ class CreatePesananTable extends Migration
             $table->string('foto_jaminan');
             $table->string('status_pembayaran');
             $table->string('status_peminjaman');
-            $table->string('bukti_pembayaran');
             $table->timestamps();
         });
     }
